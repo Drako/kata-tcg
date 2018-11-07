@@ -1,5 +1,7 @@
 package com.staffbase.dojo.tcg.game
 
+import kotlin.math.min
+
 /**
  * Class representing a player's state.
  *
@@ -52,8 +54,11 @@ class Player(
    * @param amount The amount of mana points to be consumed.
    * @return true, if enough mana was available, false otherwise.
    */
-  fun consumeMana(amount: Int): Boolean {
-    TODO()
+  fun consumeMana(amount: Int): Boolean = if (amount <= mana) {
+    mana -= amount
+    true
+  } else {
+    false
   }
 
   /**
@@ -66,11 +71,11 @@ class Player(
     TODO()
   }
 
-  fun addManaSlot() {
-    if (manaSlots < 10) {
-      ++manaSlots
-    }
+  fun addManaSlots(amount: Int = 1) {
+    manaSlots = min(10, manaSlots + amount)
   }
+
+  fun addManaSlot() = addManaSlots()
 
   fun refillMana() {
     mana = manaSlots

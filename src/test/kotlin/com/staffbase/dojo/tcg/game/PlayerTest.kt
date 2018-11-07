@@ -3,9 +3,10 @@ package com.staffbase.dojo.tcg.game
 import assertk.assert
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotEqualTo
-import assertk.assertions.isTrue
 import com.staffbase.dojo.tcg.AbstractTest
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import org.koin.standalone.get
 import org.koin.standalone.inject
 import kotlin.test.assertEquals
@@ -76,15 +77,27 @@ class PlayerTest : AbstractTest() {
     assert(defaultPlayer.mana).isEqualTo(expectedManaSlots)
   }
 
-  @Test
-  fun `Consuming mana reduce available mana`() {
-    defaultPlayer.addManaSlot()
+  @ParameterizedTest
+  @CsvSource(
+      "1, 1, 0, true",
+      "5, 2, 3, true",
+      "1, 2, 1, false",
+      "10, 10, 0, true",
+      "5, 10, 5, false"
+  )
+  fun `Consuming mana reduce available mana`(
+    beforeMana: Int,
+    reduceMana: Int,
+    afterMana: Int,
+    consumed: Boolean
+  ) {
+    defaultPlayer.addManaSlots(beforeMana)
     defaultPlayer.refillMana()
 
-    val manaConsumed = defaultPlayer.consumeMana(1)
+    val manaConsumed = defaultPlayer.consumeMana(reduceMana)
 
-    assert(defaultPlayer.mana).isEqualTo(0)
-    assert(manaConsumed).isTrue()
+    assert(defaultPlayer.mana).isEqualTo(afterMana)
+    assertEquals(manaConsumed, consumed)
   }
 
 
