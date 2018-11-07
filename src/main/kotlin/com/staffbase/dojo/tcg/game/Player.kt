@@ -22,6 +22,9 @@ class Player(
   override var hand: List<Int> = listOf()
     private set
 
+  var manaSlots: Int = 0
+    private set
+
   init {
     draw(3)
   }

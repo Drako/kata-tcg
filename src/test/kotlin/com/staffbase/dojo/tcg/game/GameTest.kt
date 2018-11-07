@@ -37,4 +37,12 @@ class GameTest : AbstractTest() {
     defaultGame.startTurn(0)
     verify(defaultGame.players[0]).draw(1)
   }
+
+  @Test
+  fun `At the start of the turn the current player should receive a mana slot`() {
+    declareMock<Player>()
+    val beforeManaSlots = defaultGame.players[0].manaSlots
+    defaultGame.startTurn(0)
+    assert(defaultGame.players[0].manaSlots).isEqualTo(beforeManaSlots+1)
+  }
 }
