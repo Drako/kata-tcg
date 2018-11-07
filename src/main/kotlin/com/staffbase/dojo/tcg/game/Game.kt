@@ -37,11 +37,9 @@ class Game(
   }
 
   fun startTurn(player: Int) {
-    // The active player draws a random card from his deck
     players[player].addManaSlot()
+    players[player].refillMana()
     players[player].draw(1)
-    // TODO: The active player receives 1 Mana slot up to a maximum of 10 total slots
-    // TODO: The active player’s empty Mana slots are refilled
   }
 
   private fun playerCanAct(player: Int): Boolean {
