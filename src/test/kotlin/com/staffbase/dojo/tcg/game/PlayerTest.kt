@@ -3,6 +3,7 @@ package com.staffbase.dojo.tcg.game
 import assertk.assert
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotEqualTo
+import assertk.assertions.isTrue
 import com.staffbase.dojo.tcg.AbstractTest
 import org.junit.jupiter.api.Test
 import org.koin.standalone.get
@@ -74,4 +75,17 @@ class PlayerTest : AbstractTest() {
     defaultPlayer.refillMana()
     assert(defaultPlayer.mana).isEqualTo(expectedManaSlots)
   }
+
+  @Test
+  fun `Consuming mana reduce available mana`() {
+    defaultPlayer.addManaSlot()
+    defaultPlayer.refillMana()
+
+    val manaConsumed = defaultPlayer.consumeMana(1)
+
+    assert(defaultPlayer.mana).isEqualTo(0)
+    assert(manaConsumed).isTrue()
+  }
+
+
 }
