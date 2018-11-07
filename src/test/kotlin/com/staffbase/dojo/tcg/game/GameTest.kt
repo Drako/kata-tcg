@@ -45,4 +45,11 @@ class GameTest : AbstractTest() {
     defaultGame.startTurn(0)
     verify(defaultGame.players[0], times(1)).addManaSlot()
   }
+
+  @Test
+  fun `At the start of the turn the current player should refill the mana`() {
+    declareMock<Player>()
+    defaultGame.startTurn(0)
+    verify(defaultGame.players[0], times(1)).refillMana()
+  }
 }

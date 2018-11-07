@@ -18,7 +18,7 @@ class PlayerTest : AbstractTest() {
     // Each player starts with a deck of 20 Damage cards with the following Mana costs:
     //   0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8
     // From the deck each player receives 3 random cards has his initial hand
-    with (defaultPlayer) {
+    with(defaultPlayer) {
       assert(life).isEqualTo(30)
       assert(mana).isEqualTo(0)
       assert(manaSlots).isEqualTo(0)
@@ -51,7 +51,7 @@ class PlayerTest : AbstractTest() {
     val beforeSlot = defaultPlayer.manaSlots
     defaultPlayer.addManaSlot()
     val afterSlot = defaultPlayer.manaSlots
-    assertEquals(afterSlot, beforeSlot + 1)
+    assertEquals(expected = beforeSlot + 1, actual = afterSlot)
   }
 
   @Test
