@@ -21,6 +21,7 @@ class PlayerTest : AbstractTest() {
     with (defaultPlayer) {
       assert(life).isEqualTo(30)
       assert(mana).isEqualTo(0)
+      assert(manaSlots).isEqualTo(0)
       assert(deck.size).isEqualTo(17)
       assert(hand.size).isEqualTo(3)
 
@@ -59,5 +60,18 @@ class PlayerTest : AbstractTest() {
       defaultPlayer.addManaSlot()
     }
     assertEquals(defaultPlayer.manaSlots, 10)
+  }
+
+  @Test
+  fun `Mana can be refilled`() {
+    val expectedManaSlots = 4
+
+    repeat(expectedManaSlots) {
+      defaultPlayer.addManaSlot()
+    }
+
+    assert(defaultPlayer.mana).isEqualTo(0)
+    defaultPlayer.refillMana()
+    assert(defaultPlayer.mana).isEqualTo(expectedManaSlots)
   }
 }
