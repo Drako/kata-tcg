@@ -44,6 +44,8 @@ class Player(
     }
   }
 
+
+
   /**
    * Consume [amount] mana points if possible.
    *
@@ -62,5 +64,11 @@ class Player(
    */
   fun takeDamage(amount: Int) {
     TODO()
+  }
+
+  fun addManaSlot() {
+    if (manaSlots < 10) {
+      ++manaSlots
+    }
   }
 }

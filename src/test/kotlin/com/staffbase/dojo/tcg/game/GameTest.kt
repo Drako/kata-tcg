@@ -2,6 +2,7 @@ package com.staffbase.dojo.tcg.game
 
 import assertk.assert
 import assertk.assertions.isEqualTo
+import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.staffbase.dojo.tcg.AbstractTest
 import org.junit.jupiter.api.Test
@@ -35,14 +36,13 @@ class GameTest : AbstractTest() {
   fun `At the start of the turn the current player should draw a card`() {
     declareMock<Player>()
     defaultGame.startTurn(0)
-    verify(defaultGame.players[0]).draw(1)
+    verify(defaultGame.players[0], times(1)).draw(1)
   }
 
   @Test
   fun `At the start of the turn the current player should receive a mana slot`() {
     declareMock<Player>()
-    val beforeManaSlots = defaultGame.players[0].manaSlots
     defaultGame.startTurn(0)
-    assert(defaultGame.players[0].manaSlots).isEqualTo(beforeManaSlots+1)
+    verify(defaultGame.players[0], times(1)).addManaSlot()
   }
 }

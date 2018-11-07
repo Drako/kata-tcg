@@ -7,6 +7,7 @@ import com.staffbase.dojo.tcg.AbstractTest
 import org.junit.jupiter.api.Test
 import org.koin.standalone.get
 import org.koin.standalone.inject
+import kotlin.test.assertEquals
 
 class PlayerTest : AbstractTest() {
   private val defaultPlayer: Player by inject()
@@ -42,5 +43,21 @@ class PlayerTest : AbstractTest() {
 
     assert(defaultPlayer.deck).isNotEqualTo(secondPlayer.deck)
     assert(defaultPlayer.hand).isNotEqualTo(secondPlayer.hand)
+  }
+
+  @Test
+  fun `Add mana slot increases the number of mana slots`() {
+    val beforeSlot = defaultPlayer.manaSlots
+    defaultPlayer.addManaSlot()
+    val afterSlot = defaultPlayer.manaSlots
+    assertEquals(afterSlot, beforeSlot + 1)
+  }
+
+  @Test
+  fun `Check if mana slot count inceases only to ten`() {
+    repeat(11) {
+      defaultPlayer.addManaSlot()
+    }
+    assertEquals(defaultPlayer.manaSlots, 10)
   }
 }
