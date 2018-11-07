@@ -49,8 +49,8 @@ class Game(
   /**
    * @throws InvalidActionException if the card cannot be played.
    */
-  private fun playCard(player: Int, target: Int, action: Action.PlayCard) {
-    TODO()
+  fun playCard(player: Int, target: Int, action: Action.PlayCard) {
+    players[player].consumeMana(players[0].hand[action.index])
   }
 
   private fun declareWinner() {

@@ -8,21 +8,21 @@ import kotlin.math.min
  * Methods of this class are used to modify or query said state.
  * The Player class is not active itself.
  */
-class Player(
+open class Player(
   life: Int,
   deck: List<Int>
 ) : PlayerState {
   override var life: Int = life
-    private set
+    protected set
 
   override var mana: Int = 0
-    private set
+    protected set
 
   var deck: List<Int> = deck
     private set
 
   override var hand: List<Int> = listOf()
-    private set
+    protected set
 
   var manaSlots: Int = 0
     private set
