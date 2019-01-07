@@ -1,4 +1,4 @@
-package com.staffbase.dojo.tcg
+package com.grossweber.dojo.tcg
 
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach

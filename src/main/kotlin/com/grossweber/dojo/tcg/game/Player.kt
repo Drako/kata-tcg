@@ -1,4 +1,4 @@
-package com.staffbase.dojo.tcg.game
+package com.grossweber.dojo.tcg.game
 
 /**
  * Class representing a player's state.

@@ -1,8 +1,8 @@
-package com.staffbase.dojo.tcg.game
+package com.grossweber.dojo.tcg.game
 
 class Game(
-  val players: List<Player>,
-  val controllers: List<Controller>
+    val players: List<Player>,
+    val controllers: List<Controller>
 ) {
   init {
     assert(players.size == 2)

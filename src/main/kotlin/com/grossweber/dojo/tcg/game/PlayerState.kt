@@ -1,4 +1,4 @@
-package com.staffbase.dojo.tcg.game
+package com.grossweber.dojo.tcg.game
 
 /**
  * The state of a player.

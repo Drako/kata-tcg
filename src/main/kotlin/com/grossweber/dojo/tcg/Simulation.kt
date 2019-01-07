@@ -1,6 +1,6 @@
-package com.staffbase.dojo.tcg
+package com.grossweber.dojo.tcg
 
-import com.staffbase.dojo.tcg.game.Game
+import com.grossweber.dojo.tcg.game.Game
 import org.koin.log.EmptyLogger
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.StandAloneContext.startKoin

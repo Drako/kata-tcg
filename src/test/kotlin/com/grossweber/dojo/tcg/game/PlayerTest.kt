@@ -1,9 +1,9 @@
-package com.staffbase.dojo.tcg.game
+package com.grossweber.dojo.tcg.game
 
 import assertk.assert
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotEqualTo
-import com.staffbase.dojo.tcg.AbstractTest
+import com.grossweber.dojo.tcg.AbstractTest
 import org.junit.jupiter.api.Test
 import org.koin.standalone.get
 import org.koin.standalone.inject

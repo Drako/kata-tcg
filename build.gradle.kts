@@ -1,17 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.3.0"
+  kotlin("jvm") version "1.3.11"
 }
 
 object Versions {
   const val ASSERTK = "0.12"
-  const val JUNIT = "5.3.1"
-  const val KOIN = "1.0.1"
-  const val MOCKITO_KOTLIN = "2.0.0"
+  const val JUNIT = "5.3.2"
+  const val KOIN = "1.0.2"
+  const val MOCKITO_KOTLIN = "2.1.0"
   
   object KotlinX {
-    const val COROUTINES = "1.0.0"
+    const val COROUTINES = "1.1.0"
   }
 }
 

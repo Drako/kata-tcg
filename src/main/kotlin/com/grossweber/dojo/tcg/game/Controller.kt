@@ -1,4 +1,4 @@
-package com.staffbase.dojo.tcg.game
+package com.grossweber.dojo.tcg.game
 
 /**
  * Controllers implement the behaviour of the players by examining both states and returning an action to be done.
